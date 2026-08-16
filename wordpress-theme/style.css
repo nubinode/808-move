@@ -1,0 +1,17 @@
+/*
+Theme Name: 808 MOVE
+Theme URI: https://808-move.pages.dev
+Author: 808 MOVE Team
+Author URI: https://808-move.pages.dev
+Description: Premium Luxury Bali Car Rental & Chauffeur WordPress Theme. Features an interactive 4-step booking engine, live currency converter (IDR, AUD, USD, EUR, SGD), airport transfer calculator, private chauffeur packages, Bali travel guide, and automated WhatsApp concierge integration. Built for PHP 8.1+ and WordPress 6.x.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: 808-move
+Tags: custom-background, custom-logo, custom-menu, featured-images, translation-ready, dark-mode, e-commerce
+*/
+
+/* Core styles are loaded from css/style.css and css/responsive.css via functions.php */
