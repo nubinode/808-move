@@ -1,4 +1,4 @@
-/* 808 MOVE - Responsive Breakpoints & Clean Single-Line Navbar */
+/* 808 MOVE - Comprehensive Responsive Breakpoints & Mobile-First Layouts */
 
 @media (max-width: 1150px) {
   .mobile-menu-btn {
@@ -53,6 +53,39 @@
   .hero-title {
     font-size: 2.6rem;
   }
+
+  .car-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 860px) {
+  .bali-guide-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .bali-guide-img-box {
+    height: 220px;
+    width: 100%;
+  }
+
+  .booking-step4-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .airport-calc-inputs {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -63,6 +96,14 @@
   .hero {
     padding: 50px 0 30px;
   }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
   
   .search-grid {
     grid-template-columns: 1fr;
@@ -70,6 +111,16 @@
   
   .search-grid button {
     grid-column: span 1;
+  }
+
+  .search-service-tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .search-tab-btn {
+    padding: 8px 12px;
+    font-size: 0.82rem;
   }
   
   .stepper-header {
@@ -106,5 +157,28 @@
     width: 52px;
     height: 52px;
     font-size: 1.5rem;
+  }
+
+  .airport-quote-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .filter-group {
+    justify-content: center;
+  }
+
+  .bali-guide-badges {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bali-guide-badge-item {
+    width: 100%;
   }
 }

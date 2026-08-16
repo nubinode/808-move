@@ -207,7 +207,7 @@ function renderStepContent(step, { selectedCar, days, grandTotal, carTotal, addo
   if (step === 4) {
     return `
       <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Step 4: Review Summary & Payment Selection</h3>
-      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; margin-bottom: 28px;">
+      <div class="booking-step4-grid">
         <!-- Breakdown -->
         <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px;">
           <h4 style="font-size: 1.15rem; margin-bottom: 16px; color: var(--color-gold);">Booking Summary</h4>

@@ -352,16 +352,16 @@ function renderCarDetail(container, queryParam) {
           <a href="#cars" class="text-gold" style="font-weight: 600; font-size: 0.9rem;">← Back to All Cars</a>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px;">
+        <div class="car-detail-layout">
           <!-- Left: Gallery & Specs -->
           <div>
-            <div style="border-radius: var(--radius-md); overflow: hidden; height: 380px; margin-bottom: 16px; border: 1px solid var(--border-subtle);">
+            <div style="border-radius: var(--radius-md); overflow: hidden; height: 380px; margin-bottom: 16px; border: 1px solid var(--border-subtle); background: #0f1117;">
               <img id="main-car-img" src="${car.image}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             
-            <div style="display: flex; gap: 12px; margin-bottom: 30px;">
+            <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
               ${(car.gallery || [car.image]).map(img => `
-                <img src="${img}" style="width: 100px; height: 65px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid var(--border-gold);" onclick="document.getElementById('main-car-img').src = '${img}'">
+                <img src="${img}" style="width: 90px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid var(--border-gold);" onclick="document.getElementById('main-car-img').src = '${img}'">
               `).join('')}
             </div>
 
@@ -369,7 +369,7 @@ function renderCarDetail(container, queryParam) {
             <p style="color: var(--text-secondary); margin-bottom: 24px;">${car.description}</p>
 
             <h3 style="font-size: 1.3rem; margin-bottom: 16px; color: var(--color-gold);">Vehicle Specifications</h3>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 30px;">
               <div><span style="color: var(--text-muted);">Engine:</span> <strong>${car.engine}</strong></div>
               <div><span style="color: var(--text-muted);">Fuel:</span> <strong>${car.fuel}</strong></div>
               <div><span style="color: var(--text-muted);">Capacity:</span> <strong>${car.seats} Passengers</strong></div>
@@ -396,7 +396,7 @@ function renderCarDetail(container, queryParam) {
 
           <!-- Right: Direct Booking Box -->
           <div>
-            <div style="position: sticky; top: 110px; background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-card);">
+            <div style="position: sticky; top: 100px; background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-card);">
               <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px;">
                 <div>
                   <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Self-Drive Rate</span>
@@ -479,7 +479,7 @@ function renderAirportTransfer(container) {
         <!-- Interactive Airport Fare Calculator -->
         <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 50px; max-width: 880px; margin-left: auto; margin-right: auto;">
           <h3 style="font-size: 1.3rem; margin-bottom: 16px; color: var(--color-gold);">Instant Airport Fare Calculator</h3>
-          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px;">
+          <div class="airport-calc-inputs">
             <div class="search-input-group">
               <label>Select Destination Zone / Area in Bali</label>
               <select id="airport-zone-select" onchange="window.updateAirportQuote()">
@@ -497,13 +497,13 @@ function renderAirportTransfer(container) {
             </div>
           </div>
 
-          <div id="airport-quote-result" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div id="airport-quote-result" class="airport-quote-cards">
             <!-- Rendered by window.updateAirportQuote -->
           </div>
         </div>
 
         <!-- Airport Meeting Point Guide -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
           <div class="usp-card">
             <div class="usp-icon">🪧</div>
             <h3 class="usp-title">1. Arrival Hall Greeting</h3>
@@ -575,20 +575,20 @@ function renderBaliGuide(container) {
           <p class="section-desc">Local road advice, route difficulties, and the best vehicle choices for every corner of the Island of the Gods.</p>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 32px;">
           ${BALI_GUIDES.map(guide => `
-            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 32px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; padding: 24px;">
-              <div style="border-radius: var(--radius-md); overflow: hidden; height: 260px;">
-                <img src="${guide.image}" alt="${guide.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="bali-guide-card">
+              <div class="bali-guide-img-box">
+                <img src="${guide.image}" alt="${guide.title}" loading="lazy">
               </div>
               <div>
                 <div style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">${guide.region} • ${guide.readTime}</div>
-                <h2 style="font-size: 1.6rem; margin: 8px 0 12px;">${guide.title}</h2>
-                <div style="display: flex; gap: 16px; margin-bottom: 14px; font-size: 0.85rem;">
-                  <span style="background: rgba(197, 168, 128, 0.1); border: 1px solid var(--border-gold); padding: 4px 10px; border-radius: 6px;">⚡ Difficulty: ${guide.difficulty}</span>
-                  <span style="background: rgba(255, 255, 255, 0.05); padding: 4px 10px; border-radius: 6px;">🚗 Recommended: ${guide.bestCar}</span>
+                <h2 style="font-size: 1.5rem; margin: 8px 0 12px;">${guide.title}</h2>
+                <div class="bali-guide-badges">
+                  <div class="bali-guide-badge-item">⚡ <strong>Difficulty:</strong> ${guide.difficulty}</div>
+                  <div class="bali-guide-badge-item">🚗 <strong>Recommended:</strong> ${guide.bestCar}</div>
                 </div>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;">${guide.drivingTips}</p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.6;">${guide.drivingTips}</p>
                 <div style="font-size: 0.9rem; margin-bottom: 20px;">
                   <strong style="color: var(--text-primary);">Key Highlights:</strong> ${guide.highlights.join(' • ')}
                 </div>
@@ -694,14 +694,14 @@ function renderAbout(container) {
           <p class="section-desc">808 MOVE was founded to eliminate the hassle and uncertainty from Bali car rentals.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 36px; margin-bottom: 50px;">
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 32px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 30px;">
             <h3 style="font-size: 1.3rem; margin-bottom: 14px; color: var(--color-gold);">Our Commitment to Safety</h3>
             <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
               Every car undergoes a multi-point safety checklist before every handover: brake testing, tire pressure & tread inspection, AC performance, fluid levels, and full interior steam disinfection.
             </p>
           </div>
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 32px;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 30px;">
             <h3 style="font-size: 1.3rem; margin-bottom: 14px; color: var(--color-gold);">Zero Hidden Surcharges</h3>
             <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
               What you see is what you pay. Transparent fuel policy, clear security deposit turnaround, and upfront pricing on all insurance tiers without awkward negotiations.
@@ -724,9 +724,9 @@ function renderContact(container) {
           <p class="section-desc">Connect with our Bali concierge team 24/7 via WhatsApp, phone, or contact form.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div class="contact-grid">
           <!-- Contact Details -->
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 36px;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 32px;">
             <h3 style="font-size: 1.4rem; margin-bottom: 24px; color: var(--color-gold);">Bali Headquarters</h3>
             <div style="display: flex; flex-direction: column; gap: 20px; font-size: 0.95rem;">
               <div>
@@ -755,7 +755,7 @@ function renderContact(container) {
           </div>
 
           <!-- Quick Message Form -->
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 36px;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px;">
             <h3 style="font-size: 1.4rem; margin-bottom: 20px;">Send Us a Message</h3>
             <form onsubmit="window.handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 16px;">
               <div class="search-input-group">
