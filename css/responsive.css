@@ -1,0 +1,110 @@
+/* 808 MOVE - Responsive Breakpoints & Clean Single-Line Navbar */
+
+@media (max-width: 1150px) {
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    background: rgba(12, 14, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 16px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.35s ease;
+    z-index: 999;
+  }
+  
+  .nav-links.open {
+    max-height: 550px;
+    opacity: 1;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-grid button {
+    grid-column: span 2;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-title {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  
+  .hero {
+    padding: 50px 0 30px;
+  }
+  
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-grid button {
+    grid-column: span 1;
+  }
+  
+  .stepper-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .stepper-step {
+    flex-direction: row;
+    gap: 14px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>808 MOVE | Premium Bali Car Rental & Private Chauffeur</title>
+  <meta name="description" content="Bali's premier car rental service. Self-drive hatchbacks, family MPVs, luxury SUVs, and private English-speaking tour drivers delivered free to DPS Airport & South Bali villas.">
+  <meta name="keywords" content="rental mobil bali, bali car rental, sewa mobil bali lepas kunci, car rental with driver bali, bali airport transfer, innova zenix bali, alphard bali">
+  <meta name="theme-color" content="#0a0b0e">
+
+  <!-- OpenGraph Social Tags -->
+  <meta property="og:title" content="808 MOVE | Premium Bali Car Rental & Transport">
+  <meta property="og:description" content="Move freely. Experience Bali. Modern fleet, 100% transparent pricing, and 24/7 WhatsApp concierge.">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- Brand Logo (808 Only) -->
+        <a href="#home" class="brand-logo" title="808 Bali Transport">
+          <div class="brand-logo-symbol">808</div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="nav-link active" data-route="home">Home</a></li>
+            <li><a href="#cars" class="nav-link" data-route="cars">All Cars</a></li>
+            <li><a href="#with-driver" class="nav-link" data-route="with-driver">With Driver</a></li>
+            <li><a href="#airport-transfer" class="nav-link" data-route="airport-transfer">Airport Transfer</a></li>
+            <li><a href="#packages" class="nav-link" data-route="packages">Packages</a></li>
+            <li><a href="#bali-guide" class="nav-link" data-route="bali-guide">Bali Guide</a></li>
+            <li><a href="#reviews" class="nav-link" data-route="reviews">Reviews</a></li>
+            <li><a href="#about" class="nav-link" data-route="about">About</a></li>
+            <li><a href="#faq" class="nav-link" data-route="faq">FAQ</a></li>
+            <li><a href="#contact" class="nav-link" data-route="contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Currency Switcher & Book Now CTA -->
+        <div class="nav-actions">
+          <select class="currency-select" title="Change Display Currency">
+            <option value="IDR">IDR (Rp)</option>
+            <option value="AUD">AUD (A$)</option>
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="SGD">SGD (S$)</option>
+          </select>
+          <a href="#booking" class="btn btn-primary btn-sm">Book Now ✨</a>
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container (Dynamic Render via Router) -->
+  <main id="app-main"></main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-logo-symbol">808</div>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
+            Bali's premier car rental and VIP chauffeur platform. Delivering late-model, sanitized vehicles directly to DPS Ngurah Rai International Airport and private villas across Bali.
+          </p>
+          <div style="font-size: 0.85rem; color: var(--color-gold-light);">
+            📍 Jl. Bypass Ngurah Rai No. 808, Tuban, Kuta, Badung, Bali
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#cars">Self-Drive Rental</a></li>
+            <li><a href="#with-driver">Private Tour Driver</a></li>
+            <li><a href="#airport-transfer">DPS Airport Transfer</a></li>
+            <li><a href="#packages">Multi-Day Packages</a></li>
+            <li><a href="#booking">Online Booking Engine</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Bali Guide & Info -->
+        <div class="footer-col">
+          <h4>Explore Bali</h4>
+          <ul class="footer-links">
+            <li><a href="#bali-guide">Ubud & Waterfalls</a></li>
+            <li><a href="#bali-guide">Uluwatu Cliffs</a></li>
+            <li><a href="#bali-guide">Canggu & Seminyak</a></li>
+            <li><a href="#bali-guide">Kintamani Highlands</a></li>
+            <li><a href="#faq">Driving Rules in Bali</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support & Security -->
+        <div class="footer-col">
+          <h4>24/7 Concierge</h4>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 14px;">
+            Need immediate roadside assistance or last-minute car reservation?
+          </p>
+          <a href="https://wa.me/628118088080" target="_blank" class="btn btn-whatsapp btn-sm" style="width: 100%; margin-bottom: 12px;">
+            💬 WhatsApp: +62 811 808 8080
+          </a>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">
+            Email: booking@808move.com<br>
+            Operating Hours: 07:00 – 23:00 WITA
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>© 2026 808 MOVE Bali. All rights reserved. Registered Transport Enterprise.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#faq" style="color: var(--text-muted);">Terms & Insurance Policy</a>
+          <a href="#faq" style="color: var(--text-muted);">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA with Dynamic Tooltip -->
+  <a href="https://wa.me/628118088080?text=Hi%20808%20MOVE!%20I%20would%20like%20to%20inquire%20about%20car%20rental%20in%20Bali." target="_blank" class="whatsapp-float" aria-label="Chat with 808 Move on WhatsApp">
+    <span>💬</span>
+    <span class="whatsapp-float-tooltip">Chat with Bali Concierge 24/7</span>
+  </a>
+
+  <!-- Toast Notification Root -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- App Javascript ES Module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
