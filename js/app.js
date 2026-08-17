@@ -1,5 +1,5 @@
 // 808 MOVE - Single Page Application Router & View Renderer
-import { CARS_DATA, AIRPORT_RATES, DRIVER_PACKAGES, BALI_GUIDES, PACKAGES_DATA, REVIEWS_DATA, FAQS_DATA } from './data.js';
+import { CARS_DATA, AIRPORT_RATES, DRIVER_PACKAGES, BALI_GUIDES, PACKAGES_DATA, REVIEWS_DATA, FAQS_DATA, BLOG_POSTS_DATA } from './data.js';
 import { formatPrice, getActiveCurrency, setActiveCurrency, buildWhatsAppDirectInquiry, showToast } from './utils.js';
 import { renderBookingFlow, setBookingPreselect } from './booking.js';
 
@@ -7,6 +7,7 @@ import { renderBookingFlow, setBookingPreselect } from './booking.js';
 let currentRoute = 'home';
 let currentCarFilter = 'all';
 let currentTransmissionFilter = 'all';
+let currentBlogCategory = 'all';
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,6 +76,12 @@ function renderCurrentRoute(param) {
       break;
     case 'packages':
       renderPackages(appContainer);
+      break;
+    case 'blog':
+      renderBlog(appContainer);
+      break;
+    case 'blog-detail':
+      renderBlogDetail(appContainer, param);
       break;
     case 'reviews':
       renderReviews(appContainer);
@@ -228,6 +235,40 @@ function renderHome(container) {
               </div>
             </div>
           `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News & Blog Preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">News & Travel Tips</span>
+          <h2 class="section-title">Latest Island Updates</h2>
+          <p class="section-desc">Stay informed with the latest Bali entry regulations, hidden gems, driving advice, and eco-travel insights.</p>
+        </div>
+        <div class="blog-grid">
+          ${BLOG_POSTS_DATA.slice(0, 3).map(post => `
+            <div class="blog-card">
+              <div class="blog-thumb-box">
+                <img src="${post.image}" alt="${post.title}" loading="lazy">
+                <div class="blog-badge">${post.category}</div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta-line">
+                  <span>📅 ${post.date}</span>
+                  <span>•</span>
+                  <span>⏱️ ${post.readTime}</span>
+                </div>
+                <h3 class="blog-card-title">${post.title}</h3>
+                <p class="blog-card-summary">${post.summary}</p>
+                <a href="#blog-detail?id=${post.id}" class="blog-read-link">Read Full Article →</a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#blog" class="btn btn-secondary btn-lg">View All News & Articles (${BLOG_POSTS_DATA.length}) →</a>
         </div>
       </div>
     </section>
@@ -637,6 +678,123 @@ function renderPackages(container) {
   `;
 }
 
+// BLOG / NEWS CATALOG VIEW
+function renderBlog(container) {
+  const filteredPosts = BLOG_POSTS_DATA.filter(post => {
+    return currentBlogCategory === 'all' || post.category.toLowerCase() === currentBlogCategory.toLowerCase();
+  });
+
+  container.innerHTML = `
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">News & Journal</span>
+          <h1 class="section-title">Bali Travel News & Road Advice</h1>
+          <p class="section-desc">Official tourism regulations, hidden destination spotlights, self-drive navigation tips, and fleet updates.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <button class="filter-chip ${currentBlogCategory === 'all' ? 'active' : ''}" onclick="window.setBlogCategoryFilter('all')">All Articles (${BLOG_POSTS_DATA.length})</button>
+            <button class="filter-chip ${currentBlogCategory === 'news & regulations' ? 'active' : ''}" onclick="window.setBlogCategoryFilter('news & regulations')">News & Regulations</button>
+            <button class="filter-chip ${currentBlogCategory === 'travel guide' ? 'active' : ''}" onclick="window.setBlogCategoryFilter('travel guide')">Travel Guides</button>
+            <button class="filter-chip ${currentBlogCategory === 'driving tips' ? 'active' : ''}" onclick="window.setBlogCategoryFilter('driving tips')">Driving Tips</button>
+            <button class="filter-chip ${currentBlogCategory === 'fleet & eco-travel' ? 'active' : ''}" onclick="window.setBlogCategoryFilter('fleet & eco-travel')">Fleet & Eco</button>
+          </div>
+
+          <div style="flex: 1; max-width: 260px; min-width: 180px;">
+            <input type="text" id="blog-search-input" placeholder="🔍 Search news..." oninput="window.filterBlogSearch(this.value)" style="width: 100%; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.85rem; outline: none;">
+          </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blog-posts-grid">
+          ${filteredPosts.map(post => `
+            <div class="blog-card">
+              <div class="blog-thumb-box">
+                <img src="${post.image}" alt="${post.title}" loading="lazy">
+                <div class="blog-badge">${post.category}</div>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta-line">
+                  <span>📅 ${post.date}</span>
+                  <span>•</span>
+                  <span>✍️ ${post.author}</span>
+                  <span>•</span>
+                  <span>⏱️ ${post.readTime}</span>
+                </div>
+                <h2 class="blog-card-title">${post.title}</h2>
+                <p class="blog-card-summary">${post.summary}</p>
+                <a href="#blog-detail?id=${post.id}" class="blog-read-link">Read Full Article →</a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+// SINGLE BLOG POST DETAIL VIEW
+function renderBlogDetail(container, queryParam) {
+  const urlParams = new URLSearchParams(queryParam || '');
+  const postId = urlParams.get('id') || 'bali-tourist-tax-2026-guide';
+  const post = BLOG_POSTS_DATA.find(p => p.id === postId || p.slug === postId) || BLOG_POSTS_DATA[0];
+
+  const shareText = encodeURIComponent(`Check out this article: "${post.title}" on 808 MOVE Bali - ${window.location.href}`);
+  const shareWaUrl = `https://wa.me/?text=${shareText}`;
+
+  container.innerHTML = `
+    <section class="section">
+      <div class="container">
+        <div class="blog-detail-container">
+          <div style="margin-bottom: 24px;">
+            <a href="#blog" class="text-gold" style="font-weight: 600; font-size: 0.9rem;">← Back to All Articles</a>
+          </div>
+
+          <div class="blog-detail-header">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+              <span class="blog-badge" style="position: static;">${post.category}</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">📅 ${post.date}</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">• ✍️ By ${post.author}</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">• ⏱️ ${post.readTime}</span>
+            </div>
+            <h1 class="blog-detail-title">${post.title}</h1>
+          </div>
+
+          <img src="${post.image}" alt="${post.title}" class="blog-detail-hero-img">
+
+          <div class="blog-content-body">
+            ${post.content}
+          </div>
+
+          <!-- Share & Actions -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 20px 0; margin-top: 40px;">
+            <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-secondary);">Share this article:</div>
+            <div style="display: flex; gap: 10px;">
+              <a href="${shareWaUrl}" target="_blank" class="btn btn-whatsapp btn-sm">💬 Share on WhatsApp</a>
+              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(window.location.href); window.showToast('Article link copied to clipboard!');">🔗 Copy Link</button>
+            </div>
+          </div>
+
+          <!-- Embedded Booking CTA -->
+          <div class="blog-cta-box">
+            <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Exploring Bali? Move in Supreme Comfort</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px; max-width: 560px; margin-left: auto; margin-right: auto;">
+              From agile Honda Brios for Canggu shortcuts to executive Innova Zenix Hybrids for Kintamani mountain climbs. Delivered free to DPS Airport.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+              <a href="#cars" class="btn btn-primary">Browse All Fleet →</a>
+              <a href="#booking" class="btn btn-secondary">Instant 4-Step Booking ✨</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 // 09. REVIEWS VIEW
 function renderReviews(container) {
   container.innerHTML = `
@@ -912,3 +1070,47 @@ window.handleContactSubmit = function(e) {
   window.open(`https://wa.me/628118088080?text=${text}`, '_blank');
   showToast('Thank you! Redirecting your message to our WhatsApp Concierge.');
 };
+
+window.setBlogCategoryFilter = function(cat) {
+  currentBlogCategory = cat;
+  renderBlog(document.getElementById('app-main'));
+};
+
+window.filterBlogSearch = function(query) {
+  const q = query.toLowerCase().trim();
+  const grid = document.getElementById('blog-posts-grid');
+  if (!grid) return;
+
+  const filtered = BLOG_POSTS_DATA.filter(p => {
+    const matchCat = currentBlogCategory === 'all' || p.category.toLowerCase() === currentBlogCategory.toLowerCase();
+    const matchSearch = !q || p.title.toLowerCase().includes(q) || p.summary.toLowerCase().includes(q) || p.content.toLowerCase().includes(q);
+    return matchCat && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">No articles found matching "${query}".</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(post => `
+    <div class="blog-card">
+      <div class="blog-thumb-box">
+        <img src="${post.image}" alt="${post.title}" loading="lazy">
+        <div class="blog-badge">${post.category}</div>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta-line">
+          <span>📅 ${post.date}</span>
+          <span>•</span>
+          <span>✍️ ${post.author}</span>
+          <span>•</span>
+          <span>⏱️ ${post.readTime}</span>
+        </div>
+        <h2 class="blog-card-title">${post.title}</h2>
+        <p class="blog-card-summary">${post.summary}</p>
+        <a href="#blog-detail?id=${post.id}" class="blog-read-link">Read Full Article →</a>
+      </div>
+    </div>
+  `).join('');
+};
+

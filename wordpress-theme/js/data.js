@@ -474,3 +474,110 @@ export const ADDONS_DATA = [
   { id: 'full-cdw', name: 'Zero-Excess Full Protection Insurance', pricePerDay: 75000, desc: 'Zero deductible for scratches, minor dings, & glass damage' },
   { id: 'surf-rack', name: 'Rooftop Soft Surfboard Rack', pricePerDay: 60000, desc: 'Holds up to 2 surfboards safely with padded tie-down straps' }
 ];
+
+export const BLOG_POSTS_DATA = [
+  {
+    id: 'bali-tourist-tax-2026-guide',
+    title: 'Bali Tourist Tax & Visa Regulations 2026: Complete Traveler Guide',
+    slug: 'bali-tourist-tax-2026-guide',
+    category: 'News & Regulations',
+    date: 'August 15, 2026',
+    author: '808 Move Editorial',
+    readTime: '4 min read',
+    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
+    summary: 'Everything international visitors need to know about the official Love Bali tourism levy, e-VOA entry procedures, and hassle-free airport transit.',
+    content: `
+      <p>As Bali continues to welcome millions of global travelers in 2026, understanding the latest entry policies, digital visa extensions (e-VOA), and the official Bali Tourism Levy (Love Bali) is essential for a seamless arrival at I Gusti Ngurah Rai International Airport (DPS).</p>
+      
+      <h3>1. What is the Bali Tourism Levy?</h3>
+      <p>The provincial government of Bali mandates a one-time tourism fee of IDR 150,000 (~USD 10 / AUD 15) for international visitors. This fund is dedicated to preserving Bali's unique cultural heritage, temple restoration, and improving island-wide road infrastructure and waste management.</p>
+      
+      <h3>2. How to Pay Online Before Landing</h3>
+      <p>You can pay conveniently before departure through the official portal (lovebali.baliprov.go.id). Upon payment, you receive a digital QR voucher that can be scanned rapidly at airport customs.</p>
+      
+      <h3>3. Driving Requirements for Foreigners in Bali</h3>
+      <p>To rent a self-drive car or scooter legally, foreign nationals must hold a valid International Driving Permit (IDP) alongside their domestic driver's license. At 808 MOVE, our digital verification system checks your documents prior to landing so your rental vehicle is waiting outside arrivals the moment you exit baggage claim.</p>
+      
+      <blockquote>Tip: Always keep a digital photo of your passport and IDP on your mobile phone for roadside checkpoints.</blockquote>
+    `
+  },
+  {
+    id: 'top-hidden-beaches-south-bali-by-car',
+    title: 'Top 5 Hidden Beaches in South Bali Accessible by Car',
+    slug: 'top-hidden-beaches-south-bali-by-car',
+    category: 'Travel Guide',
+    date: 'August 10, 2026',
+    author: 'Wayan Suardana',
+    readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
+    summary: 'Escape the tourist crowds and discover pristine turquoise waters, dramatic limestone cliffs, and paved parking access across the Bukit Peninsula.',
+    content: `
+      <p>While Kuta and Seminyak remain iconic, Bali’s most breathtaking coastal scenery lies hidden along the southern cliffs of the Bukit Peninsula. Here are our top 5 secret beaches with paved car access and parking facilities:</p>
+      
+      <h3>1. Melasti Beach (Ungasan)</h3>
+      <p>Famous for its dramatic winding road carved straight through towering limestone cliffs. Melasti offers crystal-clear lagoons at low tide, upscale beach clubs (White Rock & Tropical Temptation), and expansive parking lots suitable for all car sizes.</p>
+      
+      <h3>2. Nyang Nyang Beach</h3>
+      <p>Previously accessible only via a steep 20-minute hike, Nyang Nyang now features a newly paved cliff road. A capable compact SUV or crossover like the Mitsubishi Xpander Cross makes the ascent effortless.</p>
+      
+      <h3>3. Thomas Beach (Padang Padang)</h3>
+      <p>Tucked between Padang Padang and Suluban, Thomas Beach offers soft white sand, secluded cliff-shack warungs, and tranquil surf breaks with fewer crowds.</p>
+      
+      <h3>4. Gunung Payung Beach</h3>
+      <p>Located near Nusa Dua, Gunung Payung boasts pristine waters, electric shuttle transfers from the cliff top, and serene cave photo spots.</p>
+      
+      <h3>5. Green Bowl Beach</h3>
+      <p>A secluded paradise famous for natural limestone caves and resident monkeys. Best visited early morning during low tide.</p>
+    `
+  },
+  {
+    id: 'self-drive-tips-canggu-ubud-shortcuts',
+    title: 'Navigating Bali Shortcuts: Essential Self-Drive Tips for Canggu & Ubud',
+    slug: 'self-drive-tips-canggu-ubud-shortcuts',
+    category: 'Driving Tips',
+    date: 'July 28, 2026',
+    author: '808 Move Concierge',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
+    summary: 'Master Bali driving etiquette, understand shortcut road rules, and learn why compact automatic cars are ideal for lively cafe districts.',
+    content: `
+      <p>Driving self-drive in Bali gives you unparalleled freedom to explore hidden waterfalls, beach cafes, and sunrise viewpoints at your own pace. Here are key rules to drive confidently:</p>
+      
+      <h3>1. Left-Hand Drive Etiquette</h3>
+      <p>In Indonesia, traffic moves on the left. The driver sits on the right. If you are from Australia, the UK, Japan, or Singapore, the road orientation will feel completely natural.</p>
+      
+      <h3>2. Navigating the Canggu & Pererenan Shortcuts</h3>
+      <p>Bali's famous shortcuts (like the Canggu Shortcut and Nelayan connecting gang) are narrow single-lane roads bordered by rice fields. We strongly recommend renting a compact hatchback like the <strong>Honda Brio RS</strong> for effortless passing and stress-free villa parking.</p>
+      
+      <h3>3. Horn Signals as Courtesy</h3>
+      <p>In Bali, a gentle quick tap of the horn before blind curves on mountain roads (such as in Ubud, Sidemen, or Bedugul) is not aggression—it is a courteous signal alerting oncoming scooters and cars of your presence.</p>
+      
+      <h3>4. GPS Navigation Tip</h3>
+      <p>Set Google Maps or Waze to <em>"Car Mode"</em> rather than motorcycle mode to avoid being guided down pedestrian-only walking paths.</p>
+    `
+  },
+  {
+    id: 'electric-hybrid-car-rental-bali',
+    title: 'Why Renting a Hybrid (Innova Zenix) is the Smartest Choice for Bali Mountain Roads',
+    slug: 'electric-hybrid-car-rental-bali',
+    category: 'Fleet & Eco-Travel',
+    date: 'July 18, 2026',
+    author: 'Made Arta',
+    readTime: '3 min read',
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80',
+    summary: 'Discover how modern self-charging hybrid technology delivers whisper-quiet mountain touring in Kintamani and Bedugul with 50% better fuel economy.',
+    content: `
+      <p>Exploring Bali’s highlands—from Mount Batur in Kintamani to the cool crater lakes of Bedugul—involves scenic winding climbs and elevation gains over 1,500 meters above sea level.</p>
+      
+      <h3>1. Instant Electric Torque for Mountain Inclines</h3>
+      <p>The <strong>Toyota Innova Zenix Hybrid</strong> combines a 2.0L petrol engine with a high-output electric motor. When tackling steep inclines, the electric motor delivers immediate torque without gear lag or engine strain.</p>
+      
+      <h3>2. Whisper-Quiet Cabin Experience</h3>
+      <p>Cruising along the panoramic caldera roads in EV silent mode lets you immerse yourself in the natural birdsong and highland mountain tranquility.</p>
+      
+      <h3>3. Superior Fuel Efficiency</h3>
+      <p>With regenerative braking charging the battery on downhill stretches, the Zenix Hybrid achieves over 18-20 km per liter in mixed island driving, cutting your vacation fuel expenses significantly.</p>
+    `
+  }
+];
+

@@ -48,6 +48,7 @@ if (!defined('ABSPATH')) {
             <li><a href="<?php echo esc_url(home_url('/#bali-guide')); ?>"><?php esc_html_e('Uluwatu Cliffs', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#bali-guide')); ?>"><?php esc_html_e('Canggu & Seminyak', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#bali-guide')); ?>"><?php esc_html_e('Kintamani Highlands', '808-move'); ?></a></li>
+            <li><a href="<?php echo esc_url(home_url('/#blog')); ?>"><?php esc_html_e('Travel Blog & News', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#faq')); ?>"><?php esc_html_e('Driving Rules in Bali', '808-move'); ?></a></li>
           </ul>
         </div>

@@ -181,4 +181,17 @@
   .bali-guide-badge-item {
     width: 100%;
   }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-detail-hero-img {
+    height: 220px;
+  }
+
+  .blog-detail-title {
+    font-size: 1.8rem;
+  }
 }
+

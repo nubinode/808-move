@@ -39,6 +39,7 @@ if (!defined('ABSPATH')) {
             <li><a href="<?php echo esc_url(home_url('/#airport-transfer')); ?>" class="nav-link" data-route="airport-transfer"><?php esc_html_e('Airport Transfer', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#packages')); ?>" class="nav-link" data-route="packages"><?php esc_html_e('Packages', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#bali-guide')); ?>" class="nav-link" data-route="bali-guide"><?php esc_html_e('Bali Guide', '808-move'); ?></a></li>
+            <li><a href="<?php echo esc_url(home_url('/#blog')); ?>" class="nav-link" data-route="blog"><?php esc_html_e('Blog', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#reviews')); ?>" class="nav-link" data-route="reviews"><?php esc_html_e('Reviews', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#about')); ?>" class="nav-link" data-route="about"><?php esc_html_e('About', '808-move'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/#faq')); ?>" class="nav-link" data-route="faq"><?php esc_html_e('FAQ', '808-move'); ?></a></li>
